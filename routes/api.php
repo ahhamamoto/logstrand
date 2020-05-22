@@ -15,5 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('register', Api\Authentication\RegisterController::class);
-    return $request->user();
+Route::post('login', Api\Authentication\LoginController::class);
 });
