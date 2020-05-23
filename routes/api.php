@@ -27,3 +27,10 @@ Route::middleware(['auth:sanctum'])
         Route::get('/', UserController::class);
         Route::put('/change-password', ChangePasswordController::class);
     });
+
+Route::middleware(['auth:sanctum'])
+    ->prefix('groups')
+    ->namespace('Api\Groups')
+    ->group(function () {
+        Route::post('/', CreateGroupController::class);
+    });
