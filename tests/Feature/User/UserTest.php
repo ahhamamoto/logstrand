@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Users;
+namespace Tests\Feature\User;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -18,7 +18,7 @@ class UserTest extends TestCase
 
         Sanctum::actingAs($user, ['*']);
 
-        $response = $this->get('/api/users');
+        $response = $this->get('/api/user');
 
         $response->assertStatus(200);
         $response->assertJsonStructure([

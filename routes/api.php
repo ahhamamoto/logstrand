@@ -17,8 +17,8 @@ Route::post('register', Api\Authentication\RegisterController::class);
 Route::post('login', Api\Authentication\LoginController::class);
 
 Route::middleware(['auth:sanctum'])
-    ->prefix('users')
-    ->namespace('Api\Users')
+    ->prefix('user')
+    ->namespace('Api\User')
     ->group(function () {
         Route::get('/', UserController::class);
         Route::put('/change-password', ChangePasswordController::class);

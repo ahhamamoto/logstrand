@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Users;
+namespace Tests\Feature\User;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -19,7 +19,7 @@ class ChangePasswordTest extends TestCase
 
         Sanctum::actingAs($user, ['*']);
 
-        $response = $this->putJson('/api/users/change-password', [
+        $response = $this->putJson('/api/user/change-password', [
             'password' => 'password',
             'new_password' => 'newpassword',
             'new_password_confirmation' => 'newpassword',
@@ -39,7 +39,7 @@ class ChangePasswordTest extends TestCase
 
         Sanctum::actingAs($user, ['*']);
 
-        $response = $this->putJson('/api/users/change-password', [
+        $response = $this->putJson('/api/user/change-password', [
             'password' => 'password',
             'new_password' => 'newpassword',
             'new_password_confirmation' => 'password',
@@ -59,7 +59,7 @@ class ChangePasswordTest extends TestCase
 
         Sanctum::actingAs($user, ['*']);
 
-        $response = $this->putJson('/api/users/change-password', [
+        $response = $this->putJson('/api/user/change-password', [
             'password' => 'different_password',
             'new_password' => 'new_password',
             'new_password_confirmation' => 'new_password',
