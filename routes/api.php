@@ -16,4 +16,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('register', Api\Authentication\RegisterController::class);
 Route::post('login', Api\Authentication\LoginController::class);
+
+Route::middleware(['auth:sanctum'])
+    ->prefix('users')
+    ->namespace('Api\Users')
+    ->group(function () {
+        Route::put('/change-password', ChangePasswordController::class);
+    });
+
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return new \App\Http\Resources\Api\Users\UserResource($request->user());
 });

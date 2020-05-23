@@ -12,8 +12,6 @@ class RegisterController extends Controller
 {
     public function __invoke(RegisterPostRequest $request)
     {
-        $array = ['someone'];
-
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
