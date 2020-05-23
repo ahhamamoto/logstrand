@@ -15,7 +15,7 @@ class LoginTest extends TestCase
     {
         $user = factory(User::class)->create();
 
-        $response = $this->postJson('/api/login', ['email' => $user->email, 'password' => 'password']);
+        $response = $this->postJson('/api/authentication/login', ['email' => $user->email, 'password' => 'password']);
 
         $response->assertStatus(200);
         $response->assertJsonStructure([
@@ -35,7 +35,7 @@ class LoginTest extends TestCase
     {
         $user = factory(User::class)->create();
 
-        $response = $this->postJson('/api/login', ['email' => $user->email, 'password' => 'pass']);
+        $response = $this->postJson('/api/authentication/login', ['email' => $user->email, 'password' => 'pass']);
 
         $response->assertStatus(200);
         $response->assertJsonStructure([

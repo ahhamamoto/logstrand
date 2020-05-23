@@ -20,7 +20,7 @@ class RegisterTest extends TestCase
             'password_confirmation' => 'password',
         ];
 
-        $response = $this->postJson('/api/register', $user);
+        $response = $this->postJson('/api/authentication/register', $user);
 
         $response->assertStatus(201);
         $this->assertDatabaseHas('users', ['name' => $user['name'], 'email' => $user['email']]);
@@ -36,7 +36,7 @@ class RegisterTest extends TestCase
             'password_confirmation' => 'different_password',
         ];
 
-        $response = $this->postJson('/api/register', $user);
+        $response = $this->postJson('/api/authentication/register', $user);
 
         $response->assertStatus(422);
         $this->assertDatabaseMissing('users', ['name' => $user['name'], 'email' => $user['email']]);
@@ -52,7 +52,7 @@ class RegisterTest extends TestCase
             'password_confirmation' => 'different_password',
         ];
 
-        $response = $this->postJson('/api/register', $user);
+        $response = $this->postJson('/api/authentication/register', $user);
 
         $response->assertStatus(422);
         $this->assertDatabaseMissing('users', ['name' => $user['name'], 'email' => $user['email']]);
@@ -68,7 +68,7 @@ class RegisterTest extends TestCase
             'password_confirmation' => 'different_password',
         ];
 
-        $response = $this->postJson('/api/register', $user);
+        $response = $this->postJson('/api/authentication/register', $user);
 
         $response->assertStatus(422);
         $this->assertDatabaseMissing('users', ['name' => $user['name'], 'email' => $user['email']]);
@@ -84,7 +84,7 @@ class RegisterTest extends TestCase
             'password_confirmation' => 'different_password',
         ];
 
-        $response = $this->postJson('/api/register', $user);
+        $response = $this->postJson('/api/authentication/register', $user);
 
         $response->assertStatus(422);
         $this->assertDatabaseMissing('users', ['name' => $user['name'], 'email' => $user['email']]);
@@ -102,7 +102,7 @@ class RegisterTest extends TestCase
             'password_confirmation' => 'password',
         ];
 
-        $response = $this->postJson('/api/register', $user);
+        $response = $this->postJson('/api/authentication/register', $user);
 
         $response->assertStatus(422);
         $this->assertDatabaseMissing('users', ['name' => $user['name'], 'email' => $user['email']]);

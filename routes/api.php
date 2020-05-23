@@ -13,8 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('register', Api\Authentication\RegisterController::class);
-Route::post('login', Api\Authentication\LoginController::class);
+Route::prefix('authentication')
+    ->namespace('Api\Authentication')
+    ->group(function () {
+        Route::post('register', RegisterController::class);
+        Route::post('login', LoginController::class);
+    });
 
 Route::middleware(['auth:sanctum'])
     ->prefix('user')
