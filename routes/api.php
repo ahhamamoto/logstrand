@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,9 +20,6 @@ Route::middleware(['auth:sanctum'])
     ->prefix('users')
     ->namespace('Api\Users')
     ->group(function () {
+        Route::get('/', UserController::class);
         Route::put('/change-password', ChangePasswordController::class);
     });
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return new \App\Http\Resources\Api\Users\UserResource($request->user());
-});
