@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api\User;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\Users\ChangePasswordPostRequest;
+use App\Http\Requests\Api\User\ChangePasswordPostRequest;
 use Illuminate\Support\Facades\Hash;
 
 /**
