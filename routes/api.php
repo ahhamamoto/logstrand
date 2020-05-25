@@ -33,4 +33,5 @@ Route::middleware(['auth:sanctum'])
     ->namespace('Api\Groups')
     ->group(function () {
         Route::post('/', CreateGroupController::class);
+        Route::delete('/{group}', DeleteGroupController::class);
     });
