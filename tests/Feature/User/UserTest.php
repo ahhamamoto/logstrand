@@ -34,4 +34,13 @@ class UserTest extends TestCase
             ],
         ]);
     }
+
+    /** @test */
+    public function a_user_cant_get_his_profile_without_token()
+    {
+        $response = $this->get('/api/user');
+
+        $response->assertStatus(401);
+        $response->assertJsonStructure(['message']);
+    }
 }

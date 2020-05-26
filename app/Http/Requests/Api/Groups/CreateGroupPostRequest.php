@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Api\Users;
+namespace App\Http\Requests\Api\Groups;
 
+use App\Models\Group;
 use Illuminate\Foundation\Http\FormRequest;
 
-class ChangePasswordPostRequest extends FormRequest
+class CreateGroupPostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +14,7 @@ class ChangePasswordPostRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return $this->user()->can('create', Group::class);
     }
 
     /**
@@ -24,8 +25,8 @@ class ChangePasswordPostRequest extends FormRequest
     public function rules()
     {
         return [
-            'password' => 'required',
-            'new_password' => 'required|min:6|confirmed',
+            'name' => 'required|max:64',
+            'description' => 'required|max:512',
         ];
     }
 }
