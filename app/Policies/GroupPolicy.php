@@ -75,10 +75,10 @@ class GroupPolicy
      * @param  \App\Group  $group
      * @return mixed
      */
-    public function restore(User $user, Group $group)
-    {
-        return $user->id == $group->user_id;
-    }
+    // public function restore(User $user, Group $group)
+    // {
+    //     return $user->id == $group->user_id;
+    // }
 
     /**
      * Determine whether the user can permanently delete the model.
@@ -87,8 +87,8 @@ class GroupPolicy
      * @param  \App\Group  $group
      * @return mixed
      */
-    public function forceDelete(User $user, Group $group)
-    {
-        return $user->id == $group->user_id;
-    }
+    // public function forceDelete(User $user, Group $group)
+    // {
+    //     return $user->id == $group->user_id;
+    // }
 }

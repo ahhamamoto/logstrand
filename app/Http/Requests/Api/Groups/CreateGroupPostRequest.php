@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Api\Groups;
 
+use App\Models\Group;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CreateGroupPostRequest extends FormRequest
@@ -13,7 +14,7 @@ class CreateGroupPostRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return $this->user()->can('create', Group::class);
     }
 
     /**

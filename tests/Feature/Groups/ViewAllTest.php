@@ -27,6 +27,6 @@ class ViewAllTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertJsonStructure(['data']);
-        $response->assertJson(['data' => (new GroupCollection($groups))->toArray($response)]);
+        $response->assertJson(['data' => (new GroupCollection($groups->load('user')))->toArray($response)]);
     }
 }

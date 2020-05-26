@@ -10,6 +10,6 @@ class ViewAllGroupController extends Controller
 {
     public function __invoke(ViewAllGroupGetRequest $request)
     {
-        return new GroupCollection($request->user()->groups()->paginate(10));
+        return new GroupCollection($request->user()->groups()->with('user')->paginate(10));
     }
 }

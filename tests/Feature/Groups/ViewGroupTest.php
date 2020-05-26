@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Http\Resources\Api\Groups\GroupResource;
 use App\Models\Group;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -26,12 +27,7 @@ class ViewGroupTest extends TestCase
 
         $response->assertStatus(200)
             ->assertJson([
-                'data' => [
-                    'id' => $group->id,
-                    'user_id' => $user->id,
-                    'name' => $group->name,
-                    'description' => $group->description,
-                ],
+                'data' => (new GroupResource($group))->toArray($response),
             ]);
     }
 

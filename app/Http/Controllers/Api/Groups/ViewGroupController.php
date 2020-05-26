@@ -11,6 +11,6 @@ class ViewGroupController extends Controller
 {
     public function __invoke(ViewGroupGetRequest $request, Group $group)
     {
-        return new GroupResource($group);
+        return new GroupResource($group->load('user'));
     }
 }
