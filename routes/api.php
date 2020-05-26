@@ -34,5 +34,6 @@ Route::middleware(['auth:sanctum'])
     ->group(function () {
         Route::get('/{group}', ViewGroupController::class);
         Route::post('/', CreateGroupController::class);
+        Route::put('/{group}', UpdateGroupController::class);
         Route::delete('/{group}', DeleteGroupController::class);
     });
