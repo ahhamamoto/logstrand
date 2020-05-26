@@ -13,11 +13,7 @@ class DeleteGroupDeleteRequest extends FormRequest
      */
     public function authorize()
     {
-        if ($this->user()->id != $this->group->user_id) {
-            return false;
-        }
-
-        return true;
+        return $this->user()->can('delete', $this->group);
     }
 
     /**
